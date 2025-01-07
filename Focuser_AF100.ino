@@ -137,48 +137,48 @@ void serialEvent() {
 
 void handleCommands(String command, String param) {
   if (command.equalsIgnoreCase("STATUS")) {
-    Serial.println(RESPONSE_OK + TERMINATION_CHAR);
+    Serial.println(String(RESPONSE_OK) + String(TERMINATION_CHAR));
   }
   
   if (command.equalsIgnoreCase("RESET")) {
-    Serial.println(RESPONSE_OK + TERMINATION_CHAR);
+    Serial.println(String(RESPONSE_OK) + String(TERMINATION_CHAR));
     softwareReset();
   }
 
   if (command.equalsIgnoreCase("GP")) {
     currentPosition = stepper.currentPosition();
-    Serial.println(String(currentPosition) + TERMINATION_CHAR);
+    Serial.println(String(currentPosition) + String(TERMINATION_CHAR));
   }
 
   if (command.equalsIgnoreCase("GT")) {
-    Serial.println(String(getTemperature()) + TERMINATION_CHAR);
+    Serial.println(String(getTemperature()) + String(TERMINATION_CHAR));
   }
 
   if (command.equalsIgnoreCase("GM")) {
-    Serial.println(isMoving ? "1" : "0" + TERMINATION_CHAR);
+    Serial.println(String(isMoving ? "1" : "0") + String(TERMINATION_CHAR));
   }
 
   if (command.equalsIgnoreCase("SP")) {
     currentPosition = param.toInt();
     stepper.setCurrentPosition(currentPosition);
-    Serial.println(RESPONSE_OK + TERMINATION_CHAR);
+    Serial.println(String(RESPONSE_OK) + String(TERMINATION_CHAR));
   }
 
   if (command.equalsIgnoreCase("ST")) {
     targetPosition = param.toInt();
-    Serial.println(RESPONSE_OK + TERMINATION_CHAR);
+    Serial.println(String(RESPONSE_OK) + String(TERMINATION_CHAR));
   }
 
   if (command.equalsIgnoreCase("MOVE")) {
     stepper.enableOutputs();
     isEnabled = true;
     stepper.moveTo(targetPosition);
-    Serial.println(RESPONSE_OK + TERMINATION_CHAR);
+    Serial.println(String(RESPONSE_OK) + String(TERMINATION_CHAR));
   }
 
   if (command.equalsIgnoreCase("STOP")) {
     stepper.stop();
-    Serial.println(RESPONSE_OK + TERMINATION_CHAR);
+    Serial.println(String(RESPONSE_OK) + String(TERMINATION_CHAR));
   }
 }
 
