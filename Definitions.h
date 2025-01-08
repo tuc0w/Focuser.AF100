@@ -2,6 +2,7 @@
 
 #define RESPONSE_OK "OK"
 #define RESPONSE_KO "KO"
+#define RESPONSE_WHOAMI "AF100"
 
 #define TERMINATION_CHAR ';'
 

@@ -139,7 +139,11 @@ void handleCommands(String command, String param) {
   if (command.equalsIgnoreCase("STATUS")) {
     Serial.println(String(RESPONSE_OK) + String(TERMINATION_CHAR));
   }
-  
+
+  if (command.equalsIgnoreCase("WHOAMI")) {
+    Serial.println(String(RESPONSE_WHOAMI) + String(TERMINATION_CHAR));
+  }
+
   if (command.equalsIgnoreCase("RESET")) {
     Serial.println(String(RESPONSE_OK) + String(TERMINATION_CHAR));
     softwareReset();
